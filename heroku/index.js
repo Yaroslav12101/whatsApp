@@ -5,7 +5,7 @@
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var fetch = require('node-fetch');
+var request = require("request");
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
@@ -60,15 +60,20 @@ app.post('/instagram', function(req, res) {
 });
 
 app.get('/send', function (req, res) {
-    fetch('https://graph.facebook.com/v15.0/101638086024149/messages', {
+    var options = {
         method: 'POST',
+        url: 'https://graph.facebook.com/v15.0/101638086024149/messages',
         headers: {
             'Authorization': 'Bearer EAAR0LV67X3wBANn2D2VUbp7DkW9C7pwzB0J7LudRJeZBlZBpFMXvami4ktP588w5d1Sd12ApG8FFItA3NKIRtZAZCZCl1F8KFlerOMq9f6koZBB5XFoaK5y4dZCZBcjsCTYj3fsNmfL0QZBFepsOeVRCCk8M8Wkdln06cajfZAUWkWptRuJLN2c3X9OZBZCoHwxfZAuzUEthAgbF3oMFf9UsobyXt',
             'Content-Type': 'application/json',
         },
         body: '{ \\"messaging_product\\": \\"whatsapp\\", \\"to\\": \\"380961387269\\", \\"type\\": \\"template\\", \\"template\\": { \\"name\\": \\"hello_world\\", \\"language\\": { \\"code\\": \\"en_US\\" } } }'
-    })
-        .then(res => res.json())
-        .then(json => console.log(json));;
+    };
+
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log(body);
+    });
 });
 app.listen();
