@@ -1,3 +1,3 @@
-# [Sample App] Node.js Integration with WhatsApp Business API 
+# [Sample App] Basic Webhook for WhatsApp API (in JavaScript)
 
-A sample app that shows how to use WhatsApp API with Node.js.
+A sample app that outlines how to use webhooks with WhatsApp API.
