@@ -5,7 +5,7 @@
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import fetch from 'node-fetch';
+var fetch = require('node-fetch');
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
