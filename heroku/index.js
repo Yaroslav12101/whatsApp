@@ -21,8 +21,7 @@ var token = process.env.TOKEN || 'token';
 var received_updates = [];
 
 app.get('/', function(req, res) {
-  console.log(req);
-  res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
+  res.send("It's working");
 });
 
 app.get(['/facebook', '/instagram'], function(req, res) {
