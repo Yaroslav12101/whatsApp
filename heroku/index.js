@@ -58,7 +58,7 @@ app.post('/instagram', function(req, res) {
   res.sendStatus(200);
 });
 
-app.post('/send', function(req, res) {
+app.get('/send', function(req, res) {
     fetch('https://graph.facebook.com/v15.0/101638086024149/messages', {
         method: 'POST',
         headers: {
